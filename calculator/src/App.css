@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  float: center;
+   margin-top: 5%;
+   /*
+  margin-left: 50%;
+  margin-right: 50%; */
+}
+
+.calculator {
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-radius: 10px;
+  float: left;
+  padding: 10px;
+}
+
+.screen {
+  border: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  background-color: white;
+  height: fit-content;
+}
+
+.ans-text {
+  display: inline-block;
+  margin-right: 5px;
+  /* height: 20px; */
+}
+
+.expr-text {
+  margin-left: 5px;
+  display: inline-block;
+  /* height: 20px; */
+}
+
+.history {
+  float: left;
+  width: 20%;
+}
+
+.number-buttons {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  margin: 20px;
+}
+
+.operator-buttons {
+  display: inline-grid;
+  grid-template-columns: auto;
+}
+
+/* .button {
+  text-align: center;
+  padding: 5px;
+  width: 10px;
+} */
+
+.eq-button {
+  background-color: aliceblue;
+}
+
+.expr {
+  width: 40%;
+  text-align: right;
+}
+
+.answer {
+  width: 10%;
+  text-align: right;
+}
+
+.history-item {
+  padding: 10px;
+  margin: 5px auto;
+}
