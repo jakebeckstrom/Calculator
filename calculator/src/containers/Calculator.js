@@ -44,9 +44,10 @@ export default function Calculator({ updateServer}) {
         setExpr(e.currentTarget.value);
     }
 
-    const validateExpr = (e) => {
+    function validateExpr(e) {
+        var regex = new RegExp(/^[0-9]+(\.[0-9]+)?[+\-/*][0-9]+(\.[0-9]+)?$/);
         console.log(expr);
-        var regex = new RegExp('^[0-9]+(.[0-9]+)?[+-/*][0-9]+(.[0-9]+)?$');
+        // console.log(regex.test(expr));
         return !regex.test(expr);
     }
 
