@@ -37,7 +37,12 @@ wss.on('connection', function connection(ws) {
     res.sendFile(path.join(__dirname + '/calculator/build/index.html'))
   })
 
-  const server = app.listen(3000);
+
+  const PORT = process.env.PORT || 3000
+
+  const server = app.listen(PORT, () => {
+    console.log(`Now listening on port  ${PORT}`) 
+  })
   server.on('upgrade', (request, socket, head) => {
     wss.handleUpgrade(request, socket, head, socket => {
       wss.emit('connection', socket, request);
