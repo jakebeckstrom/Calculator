@@ -9,6 +9,8 @@ var app = express();
 
 const wss = new WebSocket.Server({ noServer: true });
 
+app.use(express.static(path.join(__dirname, 'calculator/build')))
+
 const history = [];
 
 wss.on('connection', function connection(ws) {
@@ -31,7 +33,7 @@ wss.on('connection', function connection(ws) {
     })
   });
 
-  const server = app.listen(3030);
+  const server = app.listen(3000);
   server.on('upgrade', (request, socket, head) => {
     wss.handleUpgrade(request, socket, head, socket => {
       wss.emit('connection', socket, request);
