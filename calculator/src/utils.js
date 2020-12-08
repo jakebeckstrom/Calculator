@@ -1,10 +1,10 @@
 export function evaluate(expr) {
     console.log("Eval")
-    var left = parseFloat(expr.match(/[0-9]+(.[0-9]+)?/));
+    let left = parseFloat(expr.match(/[0-9]+(\.[0-9]+)?/));
     console.log(left);
-    var op = expr.match(/[+|-|*|/]/);
+    let op = expr.match(/[+\-*/]/)[0];
     console.log(op);
-    var right = parseFloat(expr.match(/[0-9]+(.[0-9]+)?$/));
+    let right = parseFloat(expr.match(/[0-9]+(\.[0-9]+)?$/));
     console.log(right);
     var calc = {
         '+': function(a, b) { return a + b },
@@ -12,5 +12,6 @@ export function evaluate(expr) {
         '*': function(a, b) { return a * b },
         '/': function(a, b) { return a / b }
     }
-    return calc[op](left, right).toFixed(3);
+    let answer = calc[op](left, right)
+    return Number.isInteger(answer) ? answer : answer.toFixed(3);
 }
