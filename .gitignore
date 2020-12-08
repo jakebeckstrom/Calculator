@@ -3,4 +3,5 @@ calculator/node_modules
 calculator/package-lock.json
 server/node_modules
 server/package-lock.json
-
+package-lock.json
+node_modules/
