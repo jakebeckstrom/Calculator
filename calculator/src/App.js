@@ -12,7 +12,7 @@ import { Container } from '@material-ui/core';
 
 function App() {
 
-  const [ws, setWs] = React.useState(new WebSocket('ws://localhost:3000'));
+  const [ws, setWs] = React.useState(new WebSocket(process.env.REACT_APP_WS));
   const [list, setList] = React.useState([]);
 
   function updateServer(expr) {
@@ -33,7 +33,7 @@ function App() {
     return () =>
         ws.onclose = () => {
             console.log("Closed");
-            setWs(new WebSocket('ws://localhost:3000'));
+            setWs(new WebSocket(process.env.REACT_APP_WS));
         }
 }, [ws.onmessage, ws.onopen, ws.onclose, ws])
 
