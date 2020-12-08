@@ -33,6 +33,10 @@ wss.on('connection', function connection(ws) {
     })
   });
 
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/calculator/build/index.html'))
+  })
+
   const server = app.listen(3000);
   server.on('upgrade', (request, socket, head) => {
     wss.handleUpgrade(request, socket, head, socket => {
