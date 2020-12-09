@@ -1,4 +1,5 @@
 const express = require('express');
+const http = require('http');
 const WebSocket = require('ws');
 
 const app = express();
@@ -6,6 +7,21 @@ const app = express();
 const wss = new WebSocket.Server({ noServer: true });
 
 var history = [];
+
+function keepAlive() {
+  setInterval(function() {
+    var options = {
+      host: 'calculator-webapp12.herokuapp.com',
+      port: 80,
+      path: '/'
+    }
+    http.get(options, function(res) {
+      if (res);
+    }).on('error', function(err) {
+      console.log(err.message);
+    })
+  }, 600000);
+}
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(data) {
@@ -43,5 +59,7 @@ wss.on('connection', function connection(ws) {
       wss.emit('connection', socket, request);
     });
   });
+
+  keepAlive();
 
 module.exports = app;

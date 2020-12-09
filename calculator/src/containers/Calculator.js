@@ -86,7 +86,6 @@ export default function Calculator({ updateServer }) {
                 <Button className="button" size="large" onClick={handleButtonClick}>0</Button>
                 <Button className="button" size="large" onClick={handleButtonClick}>.</Button>
             </div>
-            {/* TODO: Switch to icon buttons to increase visibity */}
             <div className="operator-buttons">
                 <Button className="button" size="small" variant="contained" onClick={handleButtonClick}> + </Button>
                 <Button className="button" size="small" variant="contained" onClick={handleButtonClick}> - </Button>
