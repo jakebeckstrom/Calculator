@@ -5,7 +5,7 @@ const app = express();
 
 const wss = new WebSocket.Server({ noServer: true });
 
-const history = [];
+var history = [];
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(data) {
@@ -28,7 +28,7 @@ wss.on('connection', function connection(ws) {
   });
 
   app.get('/clear', function(req, res) {
-    history = []
+    history = [];
     res.send("History cleared");
   })
 
