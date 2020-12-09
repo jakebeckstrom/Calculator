@@ -2,7 +2,7 @@
   text-align: center;
   padding: 20px;
   float: center;
-   margin-top: 5%;
+  margin-top: 5%;
 }
 
 .calculator {
@@ -21,22 +21,31 @@
 .number-buttons {
   display: inline-grid;
   grid-template-columns: auto auto auto;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   margin: 20px;
 }
 
 .operator-buttons {
   display: inline-grid;
   grid-template-columns: auto;
+  grid-row-gap: 10px;
 }
 
 .expr {
-  width: 40%;
-  text-align: right;
+  width: 50%;
+  margin-left: 40%;
+  margin-right: 10%;
+  float: right;
+  padding: 5px;
 }
 
 .answer {
-  width: 10%;
-  text-align: right;
+  width: 30%;
+  margin-left: 60%;
+  margin-right: 10%;
+  float: right;
+  padding: 5px;
 }
 
 .history-item {

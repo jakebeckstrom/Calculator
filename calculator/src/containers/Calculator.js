@@ -13,20 +13,23 @@ export default function Calculator({ updateServer }) {
         update(expr + " = " + ans);
       }
 
-    async function handleButtonClick(e) {
+    function handleButtonClick(e) {
         let click = e.currentTarget.innerText;
-        if (click === 'C') {
-            setExpr("");
-            setAnswer("");
-        } else if (click === '='){
-            calculate(expr, updateServer);
-        } else {
-            if (answer) {
-                setExpr(click);
+        switch (click) {
+            case '=':
+                calculate(expr, updateServer);
+                break;
+            case 'C':
+                setExpr("");
                 setAnswer("");
-            } else {
-                setExpr(expr + click);
-            }
+                break;
+            default:
+                if (answer) {
+                    setExpr(click);
+                    setAnswer("");
+                } else {
+                    setExpr(expr + click);
+                }
         }
     }
 
@@ -49,17 +52,24 @@ export default function Calculator({ updateServer }) {
     return(
         <Container className="calculator" maxWidth='xs'>
             <p>Calculator</p>
-            <div>
+            <div className="expr">
                 {(expr || !expr) &&
-                <TextField className="expr"
+                <TextField
                     value={expr}
+                    inputProps={{
+                        style: { textAlign: "right" }
+                      }}
                     error={validateExpr(expr)}
                     onChange={handleChange}
                     onClick={checkAnswer}
                 /> }
-                <p> = </p>
-                <TextField className="answer"
+            </div>
+            <div className="answer">
+                <TextField
                     value={answer}
+                    inputProps={{
+                        style: { textAlign: "right" }
+                      }}
                 />
             </div>
             <div className="number-buttons">
