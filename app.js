@@ -27,7 +27,12 @@ wss.on('connection', function connection(ws) {
     })
   });
 
-  app.get('/', function(req, res) {
+  app.get('/clear', function(req, res) {
+    history = []
+    res.send("History cleared");
+  })
+
+  app.get('*', function(req, res) {
     res.send("ping received");
   });
 
