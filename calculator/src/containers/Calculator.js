@@ -1,10 +1,8 @@
 import React from 'react';
 import { Container, Button, TextField } from '@material-ui/core';
 import { evaluate } from '../utils';
-// import Screen from '../components/Screen';
 
-
-export default function Calculator({ updateServer}) {
+export default function Calculator({ updateServer }) {
 
     const [ expr, setExpr ] = React.useState("");
     const [ answer, setAnswer] = React.useState("");
@@ -22,7 +20,6 @@ export default function Calculator({ updateServer}) {
             setAnswer("");
         } else if (click === '='){
             calculate(expr, updateServer);
-            
         } else {
             if (answer) {
                 setExpr(click);
@@ -44,10 +41,8 @@ export default function Calculator({ updateServer}) {
         setExpr(e.currentTarget.value);
     }
 
-    function validateExpr(e) {
+    function validateExpr() {
         var regex = new RegExp(/^[0-9]+(\.[0-9]+)?[+\-/*][0-9]+(\.[0-9]+)?$/);
-        console.log(expr);
-        // console.log(regex.test(expr));
         return !regex.test(expr);
     }
 
@@ -55,18 +50,18 @@ export default function Calculator({ updateServer}) {
         <Container className="calculator" maxWidth='xs'>
             <p>Calculator</p>
             <div>
-                {(expr || !expr) &&<TextField className="expr"
+                {(expr || !expr) &&
+                <TextField className="expr"
                     value={expr}
                     error={validateExpr(expr)}
                     onChange={handleChange}
                     onClick={checkAnswer}
                 /> }
-                =
+                <p> = </p>
                 <TextField className="answer"
                     value={answer}
                 />
             </div>
-            {/* <Screen expr={expr} ans={answer} /> */}
             <div className="number-buttons">
                 <Button className="button" size="large" onClick={handleButtonClick}>1</Button>
                 <Button className="button" size="large" onClick={handleButtonClick}>2</Button>

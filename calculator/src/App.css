@@ -3,9 +3,6 @@
   padding: 20px;
   float: center;
    margin-top: 5%;
-   /*
-  margin-left: 50%;
-  margin-right: 50%; */
 }
 
 .calculator {
@@ -14,26 +11,6 @@
   border-radius: 10px;
   float: left;
   padding: 10px;
-}
-
-.screen {
-  border: 2px;
-  border-style: solid;
-  border-radius: 5px;
-  background-color: white;
-  height: fit-content;
-}
-
-.ans-text {
-  display: inline-block;
-  margin-right: 5px;
-  /* height: 20px; */
-}
-
-.expr-text {
-  margin-left: 5px;
-  display: inline-block;
-  /* height: 20px; */
 }
 
 .history {
@@ -50,16 +27,6 @@
 .operator-buttons {
   display: inline-grid;
   grid-template-columns: auto;
-}
-
-/* .button {
-  text-align: center;
-  padding: 5px;
-  width: 10px;
-} */
-
-.eq-button {
-  background-color: aliceblue;
 }
 
 .expr {

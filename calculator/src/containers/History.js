@@ -8,7 +8,6 @@ export default function History({list}) {
         <Container className="history" maxWidth='xs'>
             <p>History</p>
             {list.map((i) => <CalcCard expr={i} />)}
-            {/* <CalcCard expr="3 + 2 = 5" /> */}
         </Container>
     )
 }
